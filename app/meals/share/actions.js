@@ -8,7 +8,7 @@ const isInvalidText = (text) => {
   return !text || text.trim().length === 0;
 };
 
-export async function submitMealAction(formData) {
+export async function submitMealAction(previousState, formData) {
   const meal = {
     creator: formData.get("name"),
     creator_email: formData.get("email"),
