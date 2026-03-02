@@ -34,5 +34,6 @@ export async function submitMealAction(previousState, formData) {
   }
 
   await saveMeal(meal);
+  revaludatePath("/meals");
   redirect("/meals");
 }
