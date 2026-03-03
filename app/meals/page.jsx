@@ -4,6 +4,12 @@ import classes from "./page.module.css";
 import Loading from "./loading-out";
 import Meals from "./meals";
 
+export const metadata = {
+  title: "All Meals",
+  description:
+    "Browsere all meals created by our users and find your favorite one.",
+};
+
 export default async function Page() {
   return (
     <>

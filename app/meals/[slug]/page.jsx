@@ -3,6 +3,19 @@ import { getMealBySlug } from "@/lib/meals";
 import classes from "./page.module.css";
 import { notFound } from "next/navigation";
 
+export async function generateMetadata({ params }) {
+  const meal = await getMealBySlug(params.slug);
+
+  if (!meal) {
+    notFound(); //  THis function will navigate the user to the closest 404 page in the file structure if the meal is not found in the database
+  } else {
+    return {
+      title: meal.title,
+      description: meal.summary,
+    };
+  }
+}
+
 export default async function Page({ params }) {
   const meal = await getMealBySlug(params.slug);
 
