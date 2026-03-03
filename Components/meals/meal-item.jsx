@@ -9,13 +9,7 @@ export default function MealItem({ title, slug, image, summary, creator }) {
     <article className={classes.meal}>
       <header>
         <div className={classes.image}>
-          <ErrorBoundary
-            fallback={
-              <div className={classes.imageFallback}>Image not found</div>
-            }
-          >
-            <Image src={image} alt={title} fill />
-          </ErrorBoundary>
+          <Image src={image} alt={title} fill />
         </div>
         <div className={classes.headerText}>
           <h2>{title}</h2>

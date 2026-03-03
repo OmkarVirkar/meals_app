@@ -2,13 +2,19 @@ import { Suspense } from "react";
 import Link from "next/link";
 import classes from "./page.module.css";
 import Loading from "./loading-out";
-import Meals from "./meals";
+import MealsGrid from "@/Components/meals/MealsGrid";
+import { getAllMeals } from "@/lib/meals";
 
 export const metadata = {
   title: "All Meals",
   description:
     "Browsere all meals created by our users and find your favorite one.",
 };
+
+export async function Meals() {
+  const meals = await getAllMeals();
+  return <MealsGrid meals={meals} />;
+}
 
 export default async function Page() {
   return (
